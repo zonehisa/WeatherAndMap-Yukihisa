@@ -1,8 +1,7 @@
-//
-//  MyLocation.swift
-//  WeatherAndMap
-//
-//  Created by 佐藤幸久 on 2025/02/16.
-//
+import CoreLocation
 
-import Foundation
+struct MyLocation: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
