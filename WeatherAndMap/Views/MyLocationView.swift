@@ -21,9 +21,6 @@ struct MyLocationView: View {
     
     
     var body: some View {
-        
-        Text("coordinate: \(tappedPoint.latitude), \(tappedPoint.longitude)")
-        
         MapReader { mapProxy in
             Map(position: $position) {
                 UserAnnotation()
