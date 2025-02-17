@@ -45,6 +45,7 @@ struct Forecast: Codable {
 struct ForecastDay: Codable, Hashable {
     let date: String
     let day: DailyForecast
+    let astro: Astro
     let hour: [HourlyForecast]
     // 「2024-12-23」 →「2024年12月23日」の形式に変換する関数
     func toDisplayDate(_ date: String) -> String {
@@ -132,12 +133,20 @@ struct Condition: Codable, Hashable {
     let icon: String
 }
 
- // 毎時予報の表示用の構造体
- struct HourlyDisplayForecast: Identifiable {
-     var id = UUID()
-     let date: String
-     let time: String
-     let weatherIcon: String
-     let temperature: Double
-     let chanceOfRain: Double
- }
+// 毎時予報の表示用の構造体
+struct HourlyDisplayForecast: Identifiable {
+    var id = UUID()
+    let date: String
+    let time: String
+    let weatherIcon: String
+    let temperature: Double
+    let chanceOfRain: Double
+}
+
+struct Astro: Codable, Hashable {
+    let moonPhase: String
+    
+    enum CodingKeys: String, CodingKey {
+        case moonPhase = "moon_phase"
+    }
+}

@@ -53,6 +53,12 @@ struct DailyWeatherView: View {
                                 Text("%")
                             }
                             .font(.subheadline)
+                            
+                            // 月の満ち欠け
+                            Image(forecastDay.astro.moonPhase)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
                         }
                         .padding()
                         .frame(width: ScreenInfo.width / 2, height: ScreenInfo.height / 3)
@@ -108,6 +114,7 @@ struct DailyWeatherView: View {
                                 Text("〇〇") // 数字が入る
                                 Text("%")
                             }
+                            Text("月の満ち欠け")
                         }
                         .padding()
                         .frame(width: ScreenInfo.width / 2, height: ScreenInfo.height / 3)
